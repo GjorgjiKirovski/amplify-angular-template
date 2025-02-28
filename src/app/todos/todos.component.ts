@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '../../../amplify/data/resource';
+import { CommonModule } from '@angular/common';
 
 const client = generateClient<Schema>();
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css',
 })
