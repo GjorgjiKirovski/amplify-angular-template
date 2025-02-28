@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '../../../amplify/data/resource';
 
@@ -8,7 +7,7 @@ const client = generateClient<Schema>();
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.css',
 })
@@ -41,4 +40,9 @@ export class TodosComponent implements OnInit {
       console.error('error creating todos', error);
     }
   }
+
+  deleteTodo(id: string){
+    client.models.Todo.delete({ id});
+  }
+
 }
